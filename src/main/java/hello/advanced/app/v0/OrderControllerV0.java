@@ -1,5 +1,7 @@
 package hello.advanced.app.v0;
 
+import hello.advanced.trace.TraceStatus;
+import hello.advanced.trace.hellotrace.HelloTraceV1;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +14,7 @@ public class OrderControllerV0 {
 
     @GetMapping("/v0/request")
     public String request(String itemId) {
+
         orderService.orderItem(itemId);
         return "ok";
     }
