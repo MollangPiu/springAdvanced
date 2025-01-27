@@ -1,5 +1,6 @@
 package hello.advanced.app.v2;
 
+import hello.advanced.trace.TraceId;
 import hello.advanced.trace.TraceStatus;
 import hello.advanced.trace.hellotrace.HelloTraceV1;
 import hello.advanced.trace.hellotrace.HelloTraceV2;
@@ -12,11 +13,11 @@ public class OrderRepositoryV2 {
 
     private final HelloTraceV2 trace;
 
-    public void save(String itemId) {
+    public void save(TraceId traceId, String itemId) {
         TraceStatus status= null;
 
         try {
-            status = trace.begin("OrderRepositoryV1.request()");
+            status = trace.beginSync(traceId, "OrderRepositoryV1.request()");
 
             //저장 로직
             if (itemId.equals("ex")) {
