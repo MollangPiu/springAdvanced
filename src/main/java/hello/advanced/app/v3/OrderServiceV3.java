@@ -19,7 +19,7 @@ public class OrderServiceV3 {
         TraceStatus status= null;
 
         try {
-            status = trace.begin("OrderServiceV1.request()");
+            status = trace.begin("OrderServiceV3.request()");
             orderRepository.save(itemId);
             trace.end(status);
         }
